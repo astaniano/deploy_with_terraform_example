@@ -1,6 +1,6 @@
-var express = require('express');
-var pg = require('pg');
-var app = express();
+const express = require('express');
+const pg = require('pg');
+const app = express();
 
 console.log(process.env.DB_URL)
 const pool = new pg.Pool({
