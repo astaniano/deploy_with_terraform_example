@@ -17,14 +17,21 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "migration:generate": "db-migrate create -m src/common/modules/db/migrations",
+    "migration:down": "db-migrate down -m src/common/modules/db/migrations",
+    "migration:up": "db-migrate up -m src/common/modules/db/migrations"
   },
   "dependencies": {
-    "@nestjs/common": "^10.0.0",
-    "@nestjs/core": "^10.0.0",
+    "@nestjs/common": "^10.3.0",
+    "@nestjs/core": "^10.3.0",
     "@nestjs/platform-fastify": "^10.3.0",
     "@types/bcrypt": "^5.0.2",
     "bcrypt": "^5.1.1",
+    "db-migrate": "^0.11.14",
+    "db-migrate-pg": "^1.5.2",
+    "dotenv-flow": "^4.1.0",
+    "pg-promise": "^11.5.4",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.8.1"
   },

@@ -13,17 +13,15 @@ export class UserService {
 
     await this.userRepo.create(email, hashedPassword, activationLink);
 
-    await mailService.sendActivationMail(
-      email,
-      `${process.env.API_URL}/api/activate/${activationLink}`,
-    );
+    // await mailService.sendActivationMail(
+    //   email,
+    //   `${process.env.API_URL}/api/activate/${activationLink}`,
+    // );
 
-    const userDto = new UserDto(user); // id, email, isActivated
-    const tokens = tokenService.generateTokens({ ...userDto });
-    await tokenService.saveToken(userDto.id, tokens.refreshToken);
+    // const userDto = new UserDto(user); // id, email, isActivated
+    // const tokens = tokenService.generateTokens({ ...userDto });
+    // await tokenService.saveToken(userDto.id, tokens.refreshToken);
 
-    return { ...tokens, user: userDto };
-
-    return res.json(userData);
+    // return { ...tokens, user: userDto };
   }
 }
