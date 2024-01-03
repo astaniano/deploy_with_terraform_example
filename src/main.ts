@@ -24,6 +24,6 @@ async function bootstrap() {
   // const { httpAdapter } = app.get(HttpAdapterHost);
   // app.useGlobalFilters(new GenericExceptionFilter(httpAdapter));
 
-  await app.listen(3000, '0.0.0.0');
+  await app.listen(80, '0.0.0.0');
 }
 bootstrap();

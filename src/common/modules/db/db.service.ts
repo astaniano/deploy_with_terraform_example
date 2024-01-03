@@ -17,6 +17,8 @@ export class DBService implements OnModuleInit {
 
   public async onModuleInit() {
     const pgp = pgpFunc();
-    this.instance = await pgp(this.configService.dbUrl);
+    this.instance = await pgp({
+      connectionString: this.configService.dbUrl
+    });
   }
 }
