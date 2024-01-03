@@ -1,4 +1,4 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, Post, Get } from '@nestjs/common';
 import { UserService } from '../service/user.service';
 import { UserSignupBody } from './interface';
 
@@ -19,6 +19,12 @@ export class UserController {
     // res.cookie('refreshToken', userData.refreshToken, {maxAge: 30 * 24 * 60 * 60 * 1000, httpOnly: true})
     // return res.json(userData);
     return { created: true };
+  }
+
+  // TODO: remove temp endpoint
+  @Get()
+  public async getAllUsersTemp() {
+    return this.userService.getAllUsersTemp()
   }
 
   //     router.post('/registration',

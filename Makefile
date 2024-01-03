@@ -12,3 +12,5 @@ u/signup:
 	-H "Content-type: application/json" \
     -d '{"password": "bigsecret", "email": "ff@gmail.com"}'	| python3 -m json.tool
 
+u/all:
+	curl $(HOST):$(PORT)/v1/user | python3 -m json.tool

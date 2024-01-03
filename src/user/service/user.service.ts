@@ -24,4 +24,8 @@ export class UserService {
 
     // return { ...tokens, user: userDto };
   }
+
+  public async getAllUsersTemp() {
+    return this.userRepo.getAllUsersTemp();
+  }
 }
