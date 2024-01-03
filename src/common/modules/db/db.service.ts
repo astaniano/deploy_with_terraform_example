@@ -1,5 +1,5 @@
 import * as path from 'node:path';
-import fs from 'node:fs';
+import * as fs from 'node:fs';
 import { Injectable, OnModuleInit } from '@nestjs/common';
 import { ConfigService } from '../config/config.service';
 import * as pgpFunc from 'pg-promise';
