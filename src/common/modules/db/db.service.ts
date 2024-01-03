@@ -25,7 +25,7 @@ export class DBService implements OnModuleInit {
 
     if (this.configService.currentEnv === ENV.PROD) {
       const caPath =
-        path.join(process.cwd(), 'deploy/aws/rds') + 'eu-north-1-bundle.pem';
+        path.join(process.cwd(), 'deployment/aws/rds/') + 'eu-north-1-bundle.pem';
       ssl = {
         rejectUnauthorized: true,
         ca: fs.readFileSync(caPath).toString(),
