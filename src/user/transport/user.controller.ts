@@ -24,7 +24,7 @@ export class UserController {
   // TODO: remove temp endpoint
   @Get()
   public async getAllUsersTemp() {
-    return this.userService.getAllUsersTemp()
+    return this.userService.getAllUsersTemp();
   }
 
   //     router.post('/registration',

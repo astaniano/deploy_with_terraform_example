@@ -19,15 +19,17 @@ export class DBService implements OnModuleInit {
   }
 
   public async onModuleInit() {
-    let ssl = {} as { rejectUnauthorized?: boolean; ca?: string };
+    let ssl = {} as { ssl?: { rejectUnauthorized?: boolean; ca?: string } };
 
     if (this.configService.currentEnv === ENV.PROD) {
       const caPath =
         path.join(process.cwd(), 'deployment/aws/rds/') +
         'eu-north-1-bundle.pem';
       ssl = {
-        rejectUnauthorized: true,
-        ca: fs.readFileSync(caPath).toString(),
+        ssl: {
+          rejectUnauthorized: true,
+          ca: fs.readFileSync(caPath).toString(),
+        },
       };
     }
 
