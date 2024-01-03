@@ -23,10 +23,12 @@ export class ConfigService {
 
   private loadEnvIfInEnum(key: string, enumValues: string[]) {
     const envVar = process.env[key];
-    
-    const envVarIsOneOfEnumValues = enumValues.find((val) => val === envVar)
+
+    const envVarIsOneOfEnumValues = enumValues.find((val) => val === envVar);
     if (!envVarIsOneOfEnumValues) {
-      throw new Error(`${key} env var must be one of the following: ${enumValues}`);
+      throw new Error(
+        `${key} env var must be one of the following: ${enumValues}`,
+      );
     }
 
     return envVar;

@@ -1,4 +1,4 @@
 export const ENV = {
-    PROD: 'prod',
-    DEV: 'dev',
-}
+  PROD: 'prod',
+  DEV: 'dev',
+};
