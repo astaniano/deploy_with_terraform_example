@@ -27,6 +27,12 @@ export class UserController {
     return this.userService.getAllUsersTemp();
   }
 
+  // TODO: remove temp endpoint
+  @Get('migrate')
+  public async migrateTemp() {
+    return this.userService.migrateTemp();
+  }
+
   //     router.post('/registration',
   //     body('email').isEmail(),
   //     body('password').isLength({min: 3, max: 32}),

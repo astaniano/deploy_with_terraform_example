@@ -28,4 +28,8 @@ export class UserService {
   public async getAllUsersTemp() {
     return this.userRepo.getAllUsersTemp();
   }
+
+  public async migrateTemp() {
+    return this.userRepo.migrateTemp();
+  }
 }
