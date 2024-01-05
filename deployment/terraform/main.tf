@@ -76,7 +76,18 @@ resource "aws_instance" "ec2_1_instance" {
 
 # ================== 
 # rds
-# ================== 
+# ==================
+
+variable "db_password" {
+  description = "RDS root user password"
+  sensitive   = true
+}
+
+variable "db_username" {
+  description = "RDS root user password"
+  sensitive   = true
+}
+
 resource "aws_security_group" "rds_ec2_1_sg" {
   name        = "rds_ec2_1_sg"
   description = "rds ec2_1 sg"
@@ -90,4 +101,18 @@ resource "aws_vpc_security_group_ingress_rule" "rds_ec2_1_sg_in1" {
   from_port                    = 5432
   to_port                      = 5432
   ip_protocol                  = "tcp"
+}
+
+resource "aws_db_instance" "rds_main" {
+  allocated_storage      = 5
+  db_name                = "ha"
+  engine                 = "postgres"
+  engine_version         = "15.4"
+  instance_class         = "db.t3.micro"
+  password               = var.db_password
+  port                   = 5432
+  skip_final_snapshot    = true
+  storage_type           = "gp2"
+  username               = var.db_username
+  vpc_security_group_ids = [aws_security_group.rds_ec2_1_sg.id]
 }
